@@ -1,34 +1,43 @@
 package sassySearcher;
 
-import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+import java.util.List;
 
 class Page {
     String url;
-    ArrayList<String> words;
+    ArrayList<Integer> words;
     PageDB db;
 
-    private Page(String url, ArrayList<String> words) {
+    Page(PageDB db) {
+        this.db = db;
+    }
+    Page(String url, ArrayList<Integer> words, PageDB db) {
         this.url = url;
         this.words = words;
-        this.db = new PageDB();
+        this.db = db;
     }
 
-    private void generatePage(String url, File wordsFile) {
-        try {
-            ArrayList<Integer> wordCollection= new ArrayList<>();
+    public void create(List<Path> paths) throws IOException {
+        for (Path file : paths) {
+            generatePage(file.toString(), file);
+        }
+    }
 
-            Files.lines(Paths.get(String.valueOf(wordsFile))).map(line -> line.split(" ")).forEach(words -> {
+    private void generatePage(String url, Path wordsFile) {
+        try {
+            ArrayList<Integer> wordCollection = new ArrayList<>();
+
+            Files.lines(wordsFile).map(line -> line.split(" ")).forEach(words -> {
                 for (String word: words) {
                     int id = db.getWordId(word);
                     wordCollection.add(id);
                 }
             });
 
-            Page page = new Page(url, words);
+            Page page = new Page(url, wordCollection, db);
             db.addPage(page);
         } catch(Exception e) {
             System.out.println(e.getMessage());
