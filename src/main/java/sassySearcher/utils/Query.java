@@ -1,4 +1,8 @@
-package sassySearcher;
+package sassySearcher.utils;
+
+import sassySearcher.models.SearchResult;
+import sassySearcher.models.PageDB;
+import sassySearcher.models.Page;
 
 import java.util.ArrayList;
 import java.util.Collections;
