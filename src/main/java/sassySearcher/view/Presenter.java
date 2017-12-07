@@ -1,4 +1,6 @@
-package sassySearcher;
+package sassySearcher.view;
+
+import sassySearcher.models.SearchResult;
 
 import java.util.ArrayList;
 
