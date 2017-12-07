@@ -1,13 +1,14 @@
-package sassySearcher;
+package sassySearcher.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PageDB {
+public class PageDB implements Serializable {
     HashMap<String, Integer> wordToId;
     ArrayList<Page> pages;
 
-    PageDB() {
+    public PageDB() {
         wordToId = new HashMap<>();
         pages = new ArrayList<>();
     }
@@ -16,7 +17,7 @@ public class PageDB {
        pages.add(page);
     }
 
-    int getWordId(String word) {
+    public int getWordId(String word) {
        if (wordToId.containsKey(word)) {
            return wordToId.get(word);
        } else {
@@ -30,7 +31,7 @@ public class PageDB {
         return pages;
     }
 
-    Page getPage(int i) {
+    public Page getPage(int i) {
         return pages.get(i);
     }
 }

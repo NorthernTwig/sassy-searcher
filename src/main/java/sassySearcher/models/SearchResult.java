@@ -1,4 +1,4 @@
-package sassySearcher;
+package sassySearcher.models;
 
 public class SearchResult implements Comparable<SearchResult> {
     public Page page;

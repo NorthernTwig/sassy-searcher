@@ -1,20 +1,21 @@
-package sassySearcher;
+package sassySearcher.models;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-class Page {
+public class Page implements Serializable {
     String url;
-    ArrayList<Integer> words;
+    public ArrayList<Integer> words;
     PageDB db;
 
-    Page(PageDB db) {
+    public Page(PageDB db) {
         this.db = db;
     }
-    Page(String url, ArrayList<Integer> words, PageDB db) {
+    public Page(String url, ArrayList<Integer> words, PageDB db) {
         this.url = url;
         this.words = words;
         this.db = db;
