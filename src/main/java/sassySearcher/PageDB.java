@@ -7,16 +7,16 @@ public class PageDB {
     HashMap<String, Integer> wordToId;
     ArrayList<Page> pages;
 
-    public PageDB() {
+    PageDB() {
         wordToId = new HashMap<>();
         pages = new ArrayList<>();
     }
 
-    public void addPage(Page page) {
+    void addPage(Page page) {
        pages.add(page);
     }
 
-    public int getWordId(String word) {
+    int getWordId(String word) {
        if (wordToId.containsKey(word)) {
            return wordToId.get(word);
        } else {
@@ -26,5 +26,11 @@ public class PageDB {
        }
     }
 
+    public ArrayList<Page> getPages() {
+        return pages;
+    }
 
+    Page getPage(int i) {
+        return pages.get(i);
+    }
 }
