@@ -23,7 +23,7 @@ public class Presenter {
         }
         builder.deleteCharAt(builder.length() - 1);
         builder.append("]");
-        System.out.println(builder.toString());
+
         return builder.toString();
     }
 
