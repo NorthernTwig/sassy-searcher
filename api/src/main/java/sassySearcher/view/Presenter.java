@@ -17,13 +17,13 @@ public class Presenter {
     public String getResult() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("<h3>Result for search query: ").append(query).append("</h3>");
-        builder.append("<ul>");
+        builder.append("[");
         for (int i = 0; i < amount; i++) {
-            builder.append("<li>").append(getResult(i)).append("</li>");
+            builder.append(getResult(i)).append(",");
         }
-        builder.append("</ul>");
-
+        builder.deleteCharAt(builder.length() - 1);
+        builder.append("]");
+        System.out.println(builder.toString());
         return builder.toString();
     }
 
