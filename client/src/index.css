@@ -71,3 +71,7 @@ input {
 .result-container h5 {
   color: #545454;
 }
+
+a {
+  text-decoration: none;
+}
