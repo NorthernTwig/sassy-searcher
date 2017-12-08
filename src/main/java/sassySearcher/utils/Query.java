@@ -31,7 +31,7 @@ public class Query {
 
         for (int i = 0; i < db.getPages().size(); i++) {
             Page p = db.getPage(i);
-            double score = 1.0 * content[i] + 0.5 * location[i];
+            double score = 1.0 * content[i] + 0.5 * location[i] + 1.0 * p.pageRank;
             result.add(new SearchResult(p, score));
         }
 
