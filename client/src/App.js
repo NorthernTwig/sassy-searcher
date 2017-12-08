@@ -9,7 +9,7 @@ class App extends Component {
 
   search = async e => {
     if (e.key === 'Enter' && !this.state.loading) {
-      this.setState({loading: !this.state.loading})
+      this.setState({ loading: !this.state.loading })
       const response = await fetch(
         `http://localhost:8080?query=${this.state.query}`,
       )
@@ -30,8 +30,18 @@ class App extends Component {
           <span className="green">l</span>
           <span className="red">e</span>
         </h1>
-        <input type="text" onChange={this.setQuery} placeholder="Search" onKeyDown={this.search} />
-        {this.state.loading ? <Spinner className="spinner" /> : <Result result={this.state.result} />}
+        <input
+          type="text"
+          onChange={this.setQuery}
+          placeholder="Search"
+          onKeyDown={this.search}
+          disabled={this.state.loading ? true : false}
+        />
+        {this.state.loading ? (
+          <Spinner className="spinner" />
+        ) : (
+          <Result result={this.state.result} />
+        )}
       </main>
     )
   }
