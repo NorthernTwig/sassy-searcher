@@ -54,3 +54,20 @@ input {
 .spinner {
   margin-top: 50px;
 }
+
+.result-container {
+  width: 500px;
+  margin: 35px;
+}
+
+.result-container div {
+  margin: 0 0 35px 0;
+}
+
+.result-container h3 {
+  color: #4285f4;
+}
+
+.result-container h5 {
+  color: #545454;
+}
