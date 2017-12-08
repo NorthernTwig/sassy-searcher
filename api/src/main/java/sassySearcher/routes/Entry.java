@@ -15,6 +15,8 @@ import java.util.List;
 
 @RestController
 public class Entry {
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("/")
     public String entry(@RequestParam(value = "query", defaultValue = "") String param) throws IOException, ClassNotFoundException {
         String name = "index";
