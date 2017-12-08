@@ -36,28 +36,48 @@ input {
 }
 
 .blue {
-  color: #4285f4
+  color: #4285f4;
 }
 
 .green {
-  color: #34a853
+  color: #34a853;
 }
 
 .red {
-  color: #ea4335
+  color: #ea4335;
 }
 
 .yellow {
-  color: #fbbc05
+  color: #fbbc05;
 }
 
 .spinner {
   margin-top: 50px;
 }
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+    bottom: 30px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
+}
+
 .result-container {
-  width: 500px;
   margin: 35px;
+}
+
+.result-container div {
+  position: relative;
+  animation-name: fade;
+  animation-fill-mode: forwards;
+  animation-duration: 750ms;
+  animation-timing-function: ease-out;
+  opacity: 0;
+  width: 500px;
 }
 
 .result-container div {
