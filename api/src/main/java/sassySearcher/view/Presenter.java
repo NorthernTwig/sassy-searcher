@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Presenter {
     String query;
     ArrayList<SearchResult> result;
-    int amount = 5;
+    int amount = 10;
 
     public Presenter(ArrayList<SearchResult> result, String query) {
         this.query = query;
