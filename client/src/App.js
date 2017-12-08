@@ -6,19 +6,30 @@ class App extends Component {
 
   setQuery = ({ target: { value: query } }) => this.setState({ query })
 
-  search = () => {
-    const result = [{ name: 'Islay', score: 1.5 }, { name: 'Denmark', score: 1.0 }]
+  search = async () => {
+    const response = await fetch(
+      `http://localhost:8080?query=${this.state.query}`,
+    )
+    const result = await response.json()
     this.setState({ result })
   }
 
   render() {
     return (
-      <div>
-        <h1>Sloogle</h1>
-        <input type="text" onChange={this.setQuery} />
+      <main>
+        <h1>
+          <span className="blue">S</span>
+          <span className="green">l</span>
+          <span className="red">o</span>
+          <span className="yellow">o</span>
+          <span className="blue">g</span>
+          <span className="green">l</span>
+          <span className="red">e</span>
+        </h1>
+        <input type="text" onChange={this.setQuery} placeholder="Search" />
         <button onClick={this.search}>search</button>
         <Result result={this.state.result} />
-      </div>
+      </main>
     )
   }
 }
