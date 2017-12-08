@@ -18,7 +18,9 @@ public class SearchResult implements Comparable<SearchResult> {
     }
 
     public String toString() {
-        return  page.url + "  -  " + score + "\n";
+        String[] splitted = page.url.split("/");
+        String url = splitted[splitted.length -1];
+        return  "{ \"name\": \"" + url + "\", \"score\": \"" + score + "\"}";
     }
 
     @Override
