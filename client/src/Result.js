@@ -5,12 +5,11 @@ export default class Result extends Component {
     return name.replace(/_/g, " ")
   }
 
-
   render() {
     return (
       <div className="result-container">
-        {this.props.result.map(data => (
-          <div key={data.name}>
+        {this.props.result.map((data, index)=> (
+          <div key={data.name} style={{ animationDelay: index * 0.323 + 's' }} >
             <a href={`https://en.wikipedia.org/wiki/${data.name}`} target="_blank">
               <h3>{this.removeUnderscore(data.name)}</h3>
             </a>
