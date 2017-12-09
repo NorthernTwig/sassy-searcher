@@ -85,7 +85,7 @@ public class Query {
     }
 
     private double getCountFrequencyScore(Page page, String query) {
-        double score = 0;
+        double score = 0.0;
         String[] words = query.split(" ");
         for (String word1 : words) {
             int id = db.getWordId(word1);
